@@ -1,12 +1,17 @@
-﻿<Window x:Class="SummaryGraph.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:SummaryGraph"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        xmlns:Dome3_WpfControlLibrary="clr-namespace:Demo_3_4_WpfControlLibrary;assembly=Demo_3_4_WpfControlLibrary" x:Class="Demo_3_4.MainWindow"
+        Title="MainWindow" Height="478" Width="1153" Loaded="Window_Loaded_1" Closing="Window_Closing_1" >
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="684*"/>
+            <ColumnDefinition Width="679*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <Dome3_WpfControlLibrary:BarControl x:Name="BarCtr" />
+        <Dome3_WpfControlLibrary:CurveControl x:Name="CurveCtr"  Grid.Column="1"  />
+
     </Grid>
 </Window>

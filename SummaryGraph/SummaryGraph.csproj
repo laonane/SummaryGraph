@@ -112,5 +112,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <NativeReference Include="Demo_3_4.exe, Version=1.0.0.0, Type=win32">
+      <Name>Demo_3_4.exe.manifest</Name>
+      <HintPath>..\..\..\wpf\Demo_3_4\bin\Debug\Demo_3_4.exe.manifest</HintPath>
+    </NativeReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

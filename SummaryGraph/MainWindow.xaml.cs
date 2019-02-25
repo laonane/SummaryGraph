@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,6 +24,42 @@ namespace SummaryGraph
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+
+        Thread timer;
+        private void Window_Loaded_1(object sender, RoutedEventArgs e)
+        {
+            BarCtr.DrawBackground();
+            CurveCtr.DrawBackground();
+            timer = new Thread(new ThreadStart(() =>
+            {
+                Random rd = new Random();
+                while (true)
+                {
+                    try
+                    {
+
+                        Dispatcher.Invoke(new Action(() =>
+                        {
+                            double d = rd.Next(20, 30);
+                            BarCtr.DrawLine(d);
+                            CurveCtr.DrawLine(d);
+                        }));
+
+                    }
+                    catch (Exception)
+                    {
+                    }
+                    Thread.Sleep(700);
+                }
+            }));
+            timer.Start();
+        }
+        private void Window_Closing_1(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            timer.Abort();
+            timer = null;
         }
     }
 }
